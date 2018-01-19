@@ -1,0 +1,26 @@
+//Media Queries mixins
+@mixin mq($break) {
+    @if $break == "tablet" {
+        @media (min-width: $bp-tb) {
+            @content;
+        }
+    } @else if $break == "desktop" {
+        @media (min-width: $bp-ds) {
+            @content;
+        }
+    } @else {
+        @error "No value could be retrieved for #{$break}";
+    }
+}
+
+
+///Flexbox settings mixins
+@mixin flex ($display: flex, $dir: null, $wrap: null, $just: null){
+    display: $display;
+    flex-direction: $dir;
+    flex-wrap: $wrap;
+    justify-content: $just;
+    @content;
+}
+
+
